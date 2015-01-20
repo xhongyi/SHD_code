@@ -11,8 +11,25 @@ such applications, a query string is usually compared against multiple candidate
 database, where the similar matches are reported.
 
 SHD expands the basic Hamming distance computation, which only detects substitutions, into a
-full-fledged edit-distance calculator, which counts not only substitutions but insertions and
-deletions as well.
+full-fledged edit-distance filter, which counts not only substitutions but **insertions and
+deletions** as well.
+
+SHD by itself, however, is *not* a edit-distance calculator. SHD is a filter that detects and
+filters some of the string pairs that have edit-distances that are greater than **T**, but it **does
+not** validate the string pairs that pass the filter have edit-distances smaller than T. In another
+word, it filters out some incorrect matches while passing some. In a DNA mapper or protein mapper,
+SHD should be used in combination with an edit-distance calculator, where SHD reduces the number
+of incorrect matches that reach to the edit-distance calculator.
+
+As a filter, SHD achieves high accuracy with high speed. However, the accuracy drops as the
+edit-distance threshold **T** increases. We recommend not setting the edit-distance threshold **T**
+greater than 5% of the query string length.
+
+Currently, SHD is implemented using Intel SSE, which uses 128-bit registers. Therefore, we recommend
+using SHD for query strings that are not longer than 128 letters. SHD can also be easily expanded to
+support longer query strings using future instruction sets such as AVX2 or AVX512. At the moment of
+developing this code, however, we do not have a system supports such ISAs. Hence SHD currently
+supports a maximum of 128 letters.
 
 The algorithm of SHD is described at: [ H. Xin et al., **Shifted Hamming Distance: A Fast and Accurate SIMD-Friendly Filter to Accelerate Alignment Verification in Read Mapping**, Bioinformatics ](http://bioinformatics.oxfordjournals.org/content/early/2015/01/10/bioinformatics.btu856.abstract)
 
