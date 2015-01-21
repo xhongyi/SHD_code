@@ -62,6 +62,11 @@ repository. To run, simply do:
 
 	$ ./countPassFilter <edit-distance threshold> < example_input
 
+# Further Extensions 
+	
 Notice that this SHD build is specific to DNA strings (which can either be A, C, T or G). To modify
 SHD for other type of strings, please change the masks in mask.h and mask.c files.
 
+# Contributors
+
+- Hongyi Xin (Carnegie Mellon University)
