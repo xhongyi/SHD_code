@@ -35,7 +35,8 @@ The algorithm of SHD is described at: [ H. Xin et al., **Shifted Hamming Distanc
 
 # Getting Started
 
-To build SHD, simply do
+To build SHD, simply do:
+
 	$ make
 
 Notice that SHD requires boost library as well as gcc-4.7. gcc-4.8 and newer versions have
@@ -43,7 +44,8 @@ compatibility issues with boost library.
 
 # Running a test
 
-To run a test using SHD, simply do
+To run a test using SHD, simply do:
+
 	$ ./countPassFilter <edit-distance threshold>
 
 Then type in string pairs that are sent to SHD. Strings are delineated by a *new line (\n)*
@@ -57,6 +59,7 @@ total number of string pairs pass SHD.
 
 You can also run SHD by redirecting input from a file. An example input is provided in the
 repository. To run, simply do:
+
 	$ ./countPassFilter <edit-distance threshold> < example_input
 
 Notice that this SHD build is specific to DNA strings (which can either be A, C, T or G). To modify
