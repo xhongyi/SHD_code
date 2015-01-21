@@ -46,7 +46,7 @@ compatibility issues with boost library.
 
 To run a test using SHD, simply do:
 
-	$ ./countPassFilter <edit-distance threshold>
+	$ ./countPassFilter <edit-distance threshold **T**>
 
 Then type in string pairs that are sent to SHD. Strings are delineated by a *new line (\n)*
 character.
@@ -60,7 +60,7 @@ total number of string pairs pass SHD.
 You can also run SHD by redirecting input from a file. An example input is provided in the
 repository. To run, simply do:
 
-	$ ./countPassFilter <edit-distance threshold> < example_input
+	$ ./countPassFilter <edit-distance threshold **T**> < example_input
 
 # Further Extensions 
 	
